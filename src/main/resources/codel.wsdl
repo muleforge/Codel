@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:tns="https://services.codelmark.com/codelhash"
+                  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+                  targetNamespace="https://services.codelmark.com/codelhash"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="https://services.codelmark.com/codelhash">
+            <s:element name="AddHash">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="psHash" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="piRef" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="psOriginator" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="piLicensee" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="psPassword" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="AddHashResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="AddHashResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CompareCodelMark">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CompareCodelMarkResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CompareCodelMarkResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetRef">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="psCode" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="piLicensee" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetRefResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetRefResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetLastRef">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="piLicensee" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetLastRefResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetLastRefResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Authenticate">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="piLicNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="psPassword" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="AuthenticateResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="AuthenticateResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetLicName">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="piLicNo" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="psPassword" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetLicNameResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetLicNameResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="This_x0020_function_x0020_has_x0020_been_x0020_superseded">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="piLicNo" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="This_x0020_function_x0020_has_x0020_been_x0020_supersededResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1"
+                                   name="This_x0020_function_x0020_has_x0020_been_x0020_supersededResult"
+                                   type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetLicExpiry">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="piLicNo" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetLicExpiryResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetLicExpiryResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="LicenseeStatus">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="piLicNo" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="LicenseeStatusResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="LicenseeStatusResult" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetServerDateTime">
+                <s:complexType/>
+            </s:element>
+            <s:element name="GetServerDateTimeResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetServerDateTimeResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="LicenseeHashInfo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="piLicNo" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="psPassword" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="LicenseeHashInfoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="LicenseeHashInfoResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="string" nillable="true" type="s:string"/>
+            <s:element name="int" type="s:int"/>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="AddHashSoapIn">
+        <wsdl:part name="parameters" element="tns:AddHash"/>
+    </wsdl:message>
+    <wsdl:message name="AddHashSoapOut">
+        <wsdl:part name="parameters" element="tns:AddHashResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CompareCodelMarkSoapIn">
+        <wsdl:part name="parameters" element="tns:CompareCodelMark"/>
+    </wsdl:message>
+    <wsdl:message name="CompareCodelMarkSoapOut">
+        <wsdl:part name="parameters" element="tns:CompareCodelMarkResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetRefSoapIn">
+        <wsdl:part name="parameters" element="tns:GetRef"/>
+    </wsdl:message>
+    <wsdl:message name="GetRefSoapOut">
+        <wsdl:part name="parameters" element="tns:GetRefResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetLastRefSoapIn">
+        <wsdl:part name="parameters" element="tns:GetLastRef"/>
+    </wsdl:message>
+    <wsdl:message name="GetLastRefSoapOut">
+        <wsdl:part name="parameters" element="tns:GetLastRefResponse"/>
+    </wsdl:message>
+    <wsdl:message name="AuthenticateSoapIn">
+        <wsdl:part name="parameters" element="tns:Authenticate"/>
+    </wsdl:message>
+    <wsdl:message name="AuthenticateSoapOut">
+        <wsdl:part name="parameters" element="tns:AuthenticateResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetLicNameSoapIn">
+        <wsdl:part name="parameters" element="tns:GetLicName"/>
+    </wsdl:message>
+    <wsdl:message name="GetLicNameSoapOut">
+        <wsdl:part name="parameters" element="tns:GetLicNameResponse"/>
+    </wsdl:message>
+    <wsdl:message name="This_x0020_function_x0020_has_x0020_been_x0020_supersededSoapIn">
+        <wsdl:part name="parameters" element="tns:This_x0020_function_x0020_has_x0020_been_x0020_superseded"/>
+    </wsdl:message>
+    <wsdl:message name="This_x0020_function_x0020_has_x0020_been_x0020_supersededSoapOut">
+        <wsdl:part name="parameters" element="tns:This_x0020_function_x0020_has_x0020_been_x0020_supersededResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetLicExpirySoapIn">
+        <wsdl:part name="parameters" element="tns:GetLicExpiry"/>
+    </wsdl:message>
+    <wsdl:message name="GetLicExpirySoapOut">
+        <wsdl:part name="parameters" element="tns:GetLicExpiryResponse"/>
+    </wsdl:message>
+    <wsdl:message name="LicenseeStatusSoapIn">
+        <wsdl:part name="parameters" element="tns:LicenseeStatus"/>
+    </wsdl:message>
+    <wsdl:message name="LicenseeStatusSoapOut">
+        <wsdl:part name="parameters" element="tns:LicenseeStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetServerDateTimeSoapIn">
+        <wsdl:part name="parameters" element="tns:GetServerDateTime"/>
+    </wsdl:message>
+    <wsdl:message name="GetServerDateTimeSoapOut">
+        <wsdl:part name="parameters" element="tns:GetServerDateTimeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="LicenseeHashInfoSoapIn">
+        <wsdl:part name="parameters" element="tns:LicenseeHashInfo"/>
+    </wsdl:message>
+    <wsdl:message name="LicenseeHashInfoSoapOut">
+        <wsdl:part name="parameters" element="tns:LicenseeHashInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="AddHashHttpGetIn">
+        <wsdl:part name="psHash" type="s:string"/>
+        <wsdl:part name="piRef" type="s:string"/>
+        <wsdl:part name="psOriginator" type="s:string"/>
+        <wsdl:part name="piLicensee" type="s:string"/>
+        <wsdl:part name="psPassword" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="AddHashHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="CompareCodelMarkHttpGetIn">
+        <wsdl:part name="Hash" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="CompareCodelMarkHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetRefHttpGetIn">
+        <wsdl:part name="psCode" type="s:string"/>
+        <wsdl:part name="piLicensee" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetRefHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetLastRefHttpGetIn">
+        <wsdl:part name="piLicensee" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetLastRefHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="AuthenticateHttpGetIn">
+        <wsdl:part name="piLicNo" type="s:string"/>
+        <wsdl:part name="psPassword" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="AuthenticateHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetLicNameHttpGetIn">
+        <wsdl:part name="piLicNo" type="s:string"/>
+        <wsdl:part name="psPassword" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetLicNameHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="This_x0020_function_x0020_has_x0020_been_x0020_supersededHttpGetIn">
+        <wsdl:part name="piLicNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="This_x0020_function_x0020_has_x0020_been_x0020_supersededHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetLicExpiryHttpGetIn">
+        <wsdl:part name="piLicNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetLicExpiryHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="LicenseeStatusHttpGetIn">
+        <wsdl:part name="piLicNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="LicenseeStatusHttpGetOut">
+        <wsdl:part name="Body" element="tns:int"/>
+    </wsdl:message>
+    <wsdl:message name="GetServerDateTimeHttpGetIn"/>
+    <wsdl:message name="GetServerDateTimeHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="LicenseeHashInfoHttpGetIn">
+        <wsdl:part name="piLicNo" type="s:string"/>
+        <wsdl:part name="psPassword" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="LicenseeHashInfoHttpGetOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="AddHashHttpPostIn">
+        <wsdl:part name="psHash" type="s:string"/>
+        <wsdl:part name="piRef" type="s:string"/>
+        <wsdl:part name="psOriginator" type="s:string"/>
+        <wsdl:part name="piLicensee" type="s:string"/>
+        <wsdl:part name="psPassword" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="AddHashHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="CompareCodelMarkHttpPostIn">
+        <wsdl:part name="Hash" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="CompareCodelMarkHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetRefHttpPostIn">
+        <wsdl:part name="psCode" type="s:string"/>
+        <wsdl:part name="piLicensee" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetRefHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetLastRefHttpPostIn">
+        <wsdl:part name="piLicensee" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetLastRefHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="AuthenticateHttpPostIn">
+        <wsdl:part name="piLicNo" type="s:string"/>
+        <wsdl:part name="psPassword" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="AuthenticateHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetLicNameHttpPostIn">
+        <wsdl:part name="piLicNo" type="s:string"/>
+        <wsdl:part name="psPassword" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetLicNameHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="This_x0020_function_x0020_has_x0020_been_x0020_supersededHttpPostIn">
+        <wsdl:part name="piLicNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="This_x0020_function_x0020_has_x0020_been_x0020_supersededHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetLicExpiryHttpPostIn">
+        <wsdl:part name="piLicNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="GetLicExpiryHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="LicenseeStatusHttpPostIn">
+        <wsdl:part name="piLicNo" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="LicenseeStatusHttpPostOut">
+        <wsdl:part name="Body" element="tns:int"/>
+    </wsdl:message>
+    <wsdl:message name="GetServerDateTimeHttpPostIn"/>
+    <wsdl:message name="GetServerDateTimeHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:message name="LicenseeHashInfoHttpPostIn">
+        <wsdl:part name="piLicNo" type="s:string"/>
+        <wsdl:part name="psPassword" type="s:string"/>
+    </wsdl:message>
+    <wsdl:message name="LicenseeHashInfoHttpPostOut">
+        <wsdl:part name="Body" element="tns:string"/>
+    </wsdl:message>
+    <wsdl:portType name="CodelHashSoap">
+        <wsdl:operation name="AddHash">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Add a single hash to Codel</documentation>
+            <wsdl:input message="tns:AddHashSoapIn"/>
+            <wsdl:output message="tns:AddHashSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="CompareCodelMark">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Determine whether a hash has been registered with
+                Codel
+            </documentation>
+            <wsdl:input message="tns:CompareCodelMarkSoapIn"/>
+            <wsdl:output message="tns:CompareCodelMarkSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetRef">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Determine whether a hash has been registered with
+                Codel
+            </documentation>
+            <wsdl:input message="tns:GetRefSoapIn"/>
+            <wsdl:output message="tns:GetRefSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLastRef">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Return the last ref number</documentation>
+            <wsdl:input message="tns:GetLastRefSoapIn"/>
+            <wsdl:output message="tns:GetLastRefSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Authenticate">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Authenticate a Licensee</documentation>
+            <wsdl:input message="tns:AuthenticateSoapIn"/>
+            <wsdl:output message="tns:AuthenticateSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLicName">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Get the Licensee's name</documentation>
+            <wsdl:input message="tns:GetLicNameSoapIn"/>
+            <wsdl:output message="tns:GetLicNameSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLicExpiry">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Get the expiry date of the current licensee
+            </documentation>
+            <wsdl:input message="tns:GetLicExpirySoapIn"/>
+            <wsdl:output message="tns:GetLicExpirySoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="LicenseeStatus">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Status of the current Licensee</documentation>
+            <wsdl:input message="tns:LicenseeStatusSoapIn"/>
+            <wsdl:output message="tns:LicenseeStatusSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetServerDateTime">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Current date and time from server</documentation>
+            <wsdl:input message="tns:GetServerDateTimeSoapIn"/>
+            <wsdl:output message="tns:GetServerDateTimeSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="LicenseeHashInfo">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Supply a list of all the hashes submitted by the
+                current licensee.
+            </documentation>
+            <wsdl:input message="tns:LicenseeHashInfoSoapIn"/>
+            <wsdl:output message="tns:LicenseeHashInfoSoapOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="CodelHashHttpGet">
+        <wsdl:operation name="AddHash">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Add a single hash to Codel</documentation>
+            <wsdl:input message="tns:AddHashHttpGetIn"/>
+            <wsdl:output message="tns:AddHashHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="CompareCodelMark">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Determine whether a hash has been registered with
+                Codel
+            </documentation>
+            <wsdl:input message="tns:CompareCodelMarkHttpGetIn"/>
+            <wsdl:output message="tns:CompareCodelMarkHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetRef">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Determine whether a hash has been registered with
+                Codel
+            </documentation>
+            <wsdl:input message="tns:GetRefHttpGetIn"/>
+            <wsdl:output message="tns:GetRefHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLastRef">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Return the last ref number</documentation>
+            <wsdl:input message="tns:GetLastRefHttpGetIn"/>
+            <wsdl:output message="tns:GetLastRefHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Authenticate">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Authenticate a Licensee</documentation>
+            <wsdl:input message="tns:AuthenticateHttpGetIn"/>
+            <wsdl:output message="tns:AuthenticateHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLicName">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Get the Licensee's name</documentation>
+            <wsdl:input message="tns:GetLicNameHttpGetIn"/>
+            <wsdl:output message="tns:GetLicNameHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLicExpiry">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Get the expiry date of the current licensee
+            </documentation>
+            <wsdl:input message="tns:GetLicExpiryHttpGetIn"/>
+            <wsdl:output message="tns:GetLicExpiryHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="LicenseeStatus">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Status of the current Licensee</documentation>
+            <wsdl:input message="tns:LicenseeStatusHttpGetIn"/>
+            <wsdl:output message="tns:LicenseeStatusHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetServerDateTime">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Current date and time from server</documentation>
+            <wsdl:input message="tns:GetServerDateTimeHttpGetIn"/>
+            <wsdl:output message="tns:GetServerDateTimeHttpGetOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="LicenseeHashInfo">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Supply a list of all the hashes submitted by the
+                current licensee.
+            </documentation>
+            <wsdl:input message="tns:LicenseeHashInfoHttpGetIn"/>
+            <wsdl:output message="tns:LicenseeHashInfoHttpGetOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="CodelHashHttpPost">
+        <wsdl:operation name="AddHash">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Add a single hash to Codel</documentation>
+            <wsdl:input message="tns:AddHashHttpPostIn"/>
+            <wsdl:output message="tns:AddHashHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="CompareCodelMark">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Determine whether a hash has been registered with
+                Codel
+            </documentation>
+            <wsdl:input message="tns:CompareCodelMarkHttpPostIn"/>
+            <wsdl:output message="tns:CompareCodelMarkHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetRef">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Determine whether a hash has been registered with
+                Codel
+            </documentation>
+            <wsdl:input message="tns:GetRefHttpPostIn"/>
+            <wsdl:output message="tns:GetRefHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLastRef">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Return the last ref number</documentation>
+            <wsdl:input message="tns:GetLastRefHttpPostIn"/>
+            <wsdl:output message="tns:GetLastRefHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="Authenticate">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Authenticate a Licensee</documentation>
+            <wsdl:input message="tns:AuthenticateHttpPostIn"/>
+            <wsdl:output message="tns:AuthenticateHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLicName">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Get the Licensee's name</documentation>
+            <wsdl:input message="tns:GetLicNameHttpPostIn"/>
+            <wsdl:output message="tns:GetLicNameHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLicExpiry">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Get the expiry date of the current licensee
+            </documentation>
+            <wsdl:input message="tns:GetLicExpiryHttpPostIn"/>
+            <wsdl:output message="tns:GetLicExpiryHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="LicenseeStatus">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Status of the current Licensee</documentation>
+            <wsdl:input message="tns:LicenseeStatusHttpPostIn"/>
+            <wsdl:output message="tns:LicenseeStatusHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetServerDateTime">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Current date and time from server</documentation>
+            <wsdl:input message="tns:GetServerDateTimeHttpPostIn"/>
+            <wsdl:output message="tns:GetServerDateTimeHttpPostOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="LicenseeHashInfo">
+            <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Supply a list of all the hashes submitted by the
+                current licensee.
+            </documentation>
+            <wsdl:input message="tns:LicenseeHashInfoHttpPostIn"/>
+            <wsdl:output message="tns:LicenseeHashInfoHttpPostOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CodelHashSoap" type="tns:CodelHashSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="AddHash">
+            <soap:operation soapAction="https://services.codelmark.com/codelhash/AddHash" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CompareCodelMark">
+            <soap:operation soapAction="https://services.codelmark.com/codelhash/CompareCodelMark" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetRef">
+            <soap:operation soapAction="https://services.codelmark.com/codelhash/GetRef" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLastRef">
+            <soap:operation soapAction="https://services.codelmark.com/codelhash/GetLastRef" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Authenticate">
+            <soap:operation soapAction="https://services.codelmark.com/codelhash/Authenticate" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLicName">
+            <soap:operation soapAction="https://services.codelmark.com/codelhash/GetLicName" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLicExpiry">
+            <soap:operation soapAction="https://services.codelmark.com/codelhash/GetLicExpiry" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="LicenseeStatus">
+            <soap:operation soapAction="https://services.codelmark.com/codelhash/LicenseeStatus" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetServerDateTime">
+            <soap:operation soapAction="https://services.codelmark.com/codelhash/GetServerDateTime" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="LicenseeHashInfo">
+            <soap:operation soapAction="https://services.codelmark.com/codelhash/LicenseeHashInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="CodelHashHttpGet" type="tns:CodelHashHttpGet">
+        <http:binding verb="GET"/>
+        <wsdl:operation name="AddHash">
+            <http:operation location="/AddHash"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CompareCodelMark">
+            <http:operation location="/CompareCodelMark"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetRef">
+            <http:operation location="/GetRef"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLastRef">
+            <http:operation location="/GetLastRef"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Authenticate">
+            <http:operation location="/Authenticate"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLicName">
+            <http:operation location="/GetLicName"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLicExpiry">
+            <http:operation location="/GetLicExpiry"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="LicenseeStatus">
+            <http:operation location="/LicenseeStatus"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetServerDateTime">
+            <http:operation location="/GetServerDateTime"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="LicenseeHashInfo">
+            <http:operation location="/LicenseeHashInfo"/>
+            <wsdl:input>
+                <http:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="CodelHashHttpPost" type="tns:CodelHashHttpPost">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="AddHash">
+            <http:operation location="/AddHash"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CompareCodelMark">
+            <http:operation location="/CompareCodelMark"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetRef">
+            <http:operation location="/GetRef"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLastRef">
+            <http:operation location="/GetLastRef"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Authenticate">
+            <http:operation location="/Authenticate"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLicName">
+            <http:operation location="/GetLicName"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLicExpiry">
+            <http:operation location="/GetLicExpiry"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="LicenseeStatus">
+            <http:operation location="/LicenseeStatus"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetServerDateTime">
+            <http:operation location="/GetServerDateTime"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="LicenseeHashInfo">
+            <http:operation location="/LicenseeHashInfo"/>
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CodelHash">
+        <wsdl:port name="CodelHashSoap" binding="tns:CodelHashSoap">
+            <soap:address location="https://services.codelmark.com/WebService/CodelHash.asmx"/>
+        </wsdl:port>
+        <wsdl:port name="CodelHashHttpGet" binding="tns:CodelHashHttpGet">
+            <http:address location="https://services.codelmark.com/WebService/CodelHash.asmx"/>
+        </wsdl:port>
+        <wsdl:port name="CodelHashHttpPost" binding="tns:CodelHashHttpPost">
+            <http:address location="https://services.codelmark.com/WebService/CodelHash.asmx"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
