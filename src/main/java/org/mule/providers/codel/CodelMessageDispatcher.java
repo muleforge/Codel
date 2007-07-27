@@ -132,7 +132,10 @@ public class CodelMessageDispatcher extends AbstractMessageDispatcher
 
     public UMOMessage doSend(UMOEvent event) throws Exception
     {
-        assert binding != null : "Binding should have been set by now.";
+        if (binding == null)
+        {
+            throw new IllegalStateException("Binding should have been set by now.");
+        }
 
         String result = null;
 
@@ -157,7 +160,7 @@ public class CodelMessageDispatcher extends AbstractMessageDispatcher
         }
         else
         {
-            assert false : "This should have been checked in the constructor.";
+            throw new IllegalStateException("This should have been checked in the constructor.");
         }
 
         if (result == null)
